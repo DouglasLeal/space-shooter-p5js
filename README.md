@@ -1,1 +1,1 @@
-# space-shooter-p5js
+# Space Shooter - P5.JS
