@@ -17,4 +17,22 @@ class ProjetilPlayer {
     mover() {
         this.posY -= this.speed;
     }
+
+    verificarColisao(inimigo){
+        let projetilPrecisao = 1;
+        let inimigoPrecisao = 1;
+
+        let colisao = collideRectRect(
+            this.posX,
+            this.posY,
+            this.width * projetilPrecisao,
+            this.height * projetilPrecisao,
+            inimigo.posX,
+            inimigo.posY,
+            inimigo.width * inimigoPrecisao,
+            inimigo.height * inimigoPrecisao
+        );
+
+        return colisao;
+    }
 }

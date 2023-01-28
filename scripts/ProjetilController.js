@@ -1,6 +1,5 @@
 class ProjetilController {
     static projeteis = [];
-    static speed = 10;
 
     static disparar({ sprite, posX, posY, width = null, height = null }) {
         let novo = new ProjetilPlayer({ sprite, posX, posY, width, height });
@@ -13,8 +12,19 @@ class ProjetilController {
             projetil.mostrar();
 
             if(projetil.posY < -projetil.height){
-                this.projeteis.splice(this.projeteis.indexOf(projetil), 1);
+                this.destruirProjetil(projetil);
             }
+
+            InimigoController.inimigos.forEach(inimigo => {
+                if(projetil.verificarColisao(inimigo)){
+                   InimigoController.destruirInimigo(inimigo);
+                   this.destruirProjetil(projetil);
+                }
+            });
         });
+    }
+
+    static destruirProjetil(projetil){
+        this.projeteis.splice(this.projeteis.indexOf(projetil), 1);
     }
 }

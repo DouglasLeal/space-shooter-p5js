@@ -1,6 +1,7 @@
 let bgSprite = null;
 let playerSprite = null;
 let projetilSprite = null;
+let inimigoSprite = null;
 
 let bg = null;
 let player = null;
@@ -10,6 +11,7 @@ function preload() {
     bgSprite = loadImage("./assets/sprites/background.png");
     playerSprite = loadImage("./assets/sprites/player.png");
     projetilSprite = loadImage("./assets/sprites/laser.png");
+    inimigoSprite = loadImage("./assets/sprites/enemy.png");
 }
 
 function setup() {
@@ -22,6 +24,8 @@ function setup() {
 function draw() {
     bg.mostrar();
     ProjetilController.mostrar();
+    InimigoController.gerarInimigo({sprite: inimigoSprite, width: 100, height: 100});
+    player.mostrar();
     player.mostrar();
 }
 
