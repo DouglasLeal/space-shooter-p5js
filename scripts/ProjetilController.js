@@ -1,10 +1,12 @@
 class ProjetilController {
     static projeteis = [];
+    static sound = null;
 
     static disparar({ sprite, posX, posY, width = null, height = null }) {
         let novo = new ProjetilPlayer({ sprite, posX, posY, width, height });
-
         this.projeteis.push(novo);
+        this.sound.play();
+        this.sound.setVolume(0.2);
     }
 
     static mostrar() {

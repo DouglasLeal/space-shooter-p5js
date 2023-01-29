@@ -4,6 +4,9 @@ let projetilSprite = null;
 let inimigoSprite = null;
 let explosaoSprites = [];
 
+let projetilSound = null;
+let explosaoSound = null;
+
 let bg = null;
 let player = null;
 
@@ -18,6 +21,9 @@ function preload() {
         loadImage("./assets/sprites/explosion/03.png"),
         loadImage("./assets/sprites/explosion/04.png"),
     ];
+
+    projetilSound = loadSound("./assets/sounds/laser.mp3");
+    explosaoSound = loadSound("./assets/sounds/explosion.mp3");
 }
 
 function setup() {
@@ -25,6 +31,8 @@ function setup() {
 
     bg = new BackgroundController({ sprite: bgSprite });
     player = new PlayerController({ sprite: playerSprite });
+    ExplosaoController.sound = explosaoSound;
+    ProjetilController.sound = projetilSound;
 }
 
 function draw() {
