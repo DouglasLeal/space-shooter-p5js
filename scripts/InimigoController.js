@@ -2,7 +2,7 @@ class InimigoController{
     static inimigos = [];
     static contador = 1;
 
-    static gerarInimigo({sprite, width = null, height = null}){
+    static gerarInimigo({sprite, explosaoSprites, width = null, height = null}){
         this.contar();
         
         if(this.contador <= 0){
@@ -12,7 +12,7 @@ class InimigoController{
             let posX = random(0, windowWidth - width || sprite.width);
             let speed = random(1, 10);
 
-            let inimigo = new Inimigo({sprite, posX, posY, speed, width, height});
+            let inimigo = new Inimigo({sprite, posX, posY, speed, explosaoSprites, width, height});
 
             this.inimigos.push(inimigo);
         }

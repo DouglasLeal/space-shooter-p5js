@@ -17,8 +17,9 @@ class ProjetilController {
 
             InimigoController.inimigos.forEach(inimigo => {
                 if(projetil.verificarColisao(inimigo)){
-                   InimigoController.destruirInimigo(inimigo);
-                   this.destruirProjetil(projetil);
+                    ExplosaoController.gerarExplosao({sprites: inimigo.explosaoSprites, posX: inimigo.posX, posY: inimigo.posY});
+                    InimigoController.destruirInimigo(inimigo);
+                    this.destruirProjetil(projetil);
                 }
             });
         });

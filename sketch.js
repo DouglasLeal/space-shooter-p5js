@@ -2,16 +2,22 @@ let bgSprite = null;
 let playerSprite = null;
 let projetilSprite = null;
 let inimigoSprite = null;
+let explosaoSprites = [];
 
 let bg = null;
 let player = null;
-let projeteis = [];
 
 function preload() {
     bgSprite = loadImage("./assets/sprites/background.png");
     playerSprite = loadImage("./assets/sprites/player.png");
     projetilSprite = loadImage("./assets/sprites/laser.png");
     inimigoSprite = loadImage("./assets/sprites/enemy.png");
+    explosaoSprites = [
+        loadImage("./assets/sprites/explosion/01.png"),
+        loadImage("./assets/sprites/explosion/02.png"),
+        loadImage("./assets/sprites/explosion/03.png"),
+        loadImage("./assets/sprites/explosion/04.png"),
+    ];
 }
 
 function setup() {
@@ -24,8 +30,9 @@ function setup() {
 function draw() {
     bg.mostrar();
     ProjetilController.mostrar();
-    InimigoController.gerarInimigo({sprite: inimigoSprite, width: 100, height: 100});
-    player.mostrar();
+    InimigoController.gerarInimigo({sprite: inimigoSprite, explosaoSprites, width: 100, height: 100});
+    ExplosaoController.mostrar();
+
     player.mostrar();
 }
 
