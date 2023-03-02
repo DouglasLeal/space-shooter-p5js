@@ -45,7 +45,7 @@ function draw() {
 }
 
 function keyPressed() {
-    if (keyCode === CONTROL) {
+    if (keyCode === CONTROL && !player.destruido) {
         ProjetilController
             .disparar({
                 sprite: projetilSprite,

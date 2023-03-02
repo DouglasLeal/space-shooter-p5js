@@ -33,6 +33,13 @@ class InimigoController{
     static mostrar(){
         this.inimigos.forEach(inimigo => {
             inimigo.mostrar();
+
+            if(inimigo.verificarColisao(player)){
+                InimigoController.destruirInimigo(inimigo);
+                player.destruir();
+                ExplosaoController.gerarExplosao({sprites: inimigo.explosaoSprites, posX: player.posX, posY: player.posY});
+                ExplosaoController.gerarExplosao({sprites: inimigo.explosaoSprites, posX: inimigo.posX, posY: inimigo.posY});
+            }
         });
     }
 

@@ -15,12 +15,16 @@ class PlayerController{
         this.posXMax = windowWidth - this.width;
         this.posYMin = 0;
         this.posYMax = windowHeight - this.height;
+
+        this.destruido = false;
     }
 
     mostrar(){
-        image(this.sprite, this.posX, this.posY, this.width, this.height);
+        if(this.destruido == false){
+            image(this.sprite, this.posX, this.posY, this.width, this.height);
 
-        this.mover();
+            this.mover();
+        }        
     }
 
     mover(){
@@ -39,5 +43,9 @@ class PlayerController{
         if(keyIsDown(DOWN_ARROW) && this.posY <= this.posYMax){
             this.posY += this.speed;
         } 
+    }
+
+    destruir(){
+        this.destruido = true;
     }
 }
