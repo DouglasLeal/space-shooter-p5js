@@ -22,6 +22,7 @@ class ProjetilController {
                     ExplosaoController.gerarExplosao({sprites: inimigo.explosaoSprites, posX: inimigo.posX, posY: inimigo.posY});
                     InimigoController.destruirInimigo(inimigo);
                     this.destruirProjetil(projetil);
+                    UIController.pontuar();
                 }
             });
         });

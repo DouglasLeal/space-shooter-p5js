@@ -33,6 +33,10 @@ function setup() {
     player = new PlayerController({ sprite: playerSprite });
     ExplosaoController.sound = explosaoSound;
     ProjetilController.sound = projetilSound;
+
+    textSize(100);
+    fill(255);
+    textAlign(CENTER, CENTER);
 }
 
 function draw() {
@@ -42,6 +46,8 @@ function draw() {
     ExplosaoController.mostrar();
 
     player.mostrar();
+
+    UIController.mostrarPontos();
 }
 
 function keyPressed() {
